@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.uasz.entities.Enseignant;
 import org.uasz.services.EnseignantService;
 
+import java.util.Optional;
+
 
 @Controller
 public class EnseignantController {
@@ -32,5 +34,17 @@ public class EnseignantController {
         enseignantService.add(enseignant);
         return "redirect:/enseignant/index";
 
+    }
+    @RequestMapping("/edit")
+    public String update(Long id ,Model model) {
+        Enseignant enseignant = enseignantService.getById(id);
+        model.addAttribute("enseignant",enseignant);
+        return "enseignant-edit";
+
+    }
+    @RequestMapping("/update")
+    public String update(Enseignant enseignant){
+        enseignantService.update(enseignant.getId(),enseignant);
+        return "redirect:index";
     }
 }

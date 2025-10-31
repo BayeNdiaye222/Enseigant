@@ -15,7 +15,7 @@
         <th>adresse</th>
         <th>telephone</th>
         <th>mail</th>
-        <th>staut</th>
+        <th>statut</th>
         <th>action</th>
     </tr>
     </thead>
@@ -27,7 +27,8 @@
     <td th:text="${item.adresse}"></td>
     <td th:text="${item.telephone}"></td>
     <td th:text="${item.mail}"></td>
-    <td th:text="${item.staut}"></td>
+    <td th:text="${item.statut}"></td>
+        <a th:href="@{edit/{id}(id=${item.id})Edit</a>}"
     </tr>
 
     </tbody>
