@@ -47,4 +47,9 @@ public class EnseignantController {
         enseignantService.update(enseignant.getId(),enseignant);
         return "redirect:index";
     }
+    @RequestMapping("/delete")
+    public String delete(Long id){
+        enseignantService.delete(id);
+        return "redirect:index";
+    }
 }

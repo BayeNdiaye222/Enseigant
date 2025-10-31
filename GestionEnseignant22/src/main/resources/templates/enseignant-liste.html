@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>Liste des enseignants</h1>
+<a th:href="@{/enseignants/list}">Liste des enseignants</a>
 <table>
     <thead>
     <tr>
@@ -29,6 +30,9 @@
     <td th:text="${item.mail}"></td>
     <td th:text="${item.statut}"></td>
         <a th:href="@{edit/{id}(id=${item.id})Edit</a>}"
+           <a "@{edit/{id}(id=${item.id}"onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enseignant ?')">
+        Supprimer
+        </a>
     </tr>
 
     </tbody>
