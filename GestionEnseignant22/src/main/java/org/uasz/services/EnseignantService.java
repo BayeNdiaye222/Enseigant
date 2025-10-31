@@ -22,13 +22,12 @@ public class EnseignantService {
         return enseignantRepository.findAll();
     }
 
-    public Optional<Enseignant> getById(Long id){
-        return enseignantRepository.findById(id);
+    public Enseignant getById(Long id){
+        return enseignantRepository.findById(id).orElse(null);
     }
 
     public void update(Long id, Enseignant enseignant){
-        Optional<Enseignant> data = getById(id);
-        Enseignant enseignantData= data.get();
+        Enseignant enseignantData=enseignantRepository.getById(id);
 
         if(enseignantData != null){
             enseignantData.setMatricule(enseignant.getMatricule());
